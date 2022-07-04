@@ -112,7 +112,7 @@ console.log("This is working...");
       "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes",
       function (resp) {
         // Iterate over the JSON object
-        for (i = 0, len = resp.length; i < len; i++) {
+        for (i = 0, len = resp.items.length; i < len; i++) {
           tableData.push({
             cod_ibge: resp.items[i].cod_ibge,
             capital: resp.items[i].capital,
