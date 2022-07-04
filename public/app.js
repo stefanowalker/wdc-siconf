@@ -1,3 +1,4 @@
+/*
 console.log("This is working!");
 
 // TESTE
@@ -13,7 +14,9 @@ console.log("This is working!");
       function (resp) {
         // Iterate over the JSON object
         for (i = 0, len = resp.length; i < len; i++) {
+
           console.log ('resp[i] = ', resp[i]);
+
           tableData.push({
             cod_ibge: resp[i].cod_ibge,
             capital: resp[i].capital,
@@ -32,16 +35,28 @@ console.log("This is working!");
     );
   };
 
-  ///// tableau.registerConnector(myConnector);
+
+  document.querySelector("#getData").addEventListener("click", getData);
+
+  function getData() {
+    tableau.connectionName = "SICONF conexão teste";
+    tableau.submit();
+  }
+
+  tableau.registerConnector(myConnector);
+
 })();
 
+*/
 
-/*
+
+console.log("This is working...");
+
 (function () {
   var myConnector = tableau.makeConnector();
 
   myConnector.getSchema = function (schemaCallback) {
-    const covidCols = [
+    const myCols = [
       {
         id: "cod_ibge",
         dataType: tableau.dataTypeEnum.int,
@@ -80,13 +95,13 @@ console.log("This is working!");
       },
     ];
 
-    let covidTableSchema = {
-      id: "RIVM",
-      alias: "Dutch Corona Cases since start",
-      columns: covidCols,
+    let myTableSchema = {
+      id: "TESTE",
+      alias: "teste alias",
+      columns: myCols,
     };
 
-    schemaCallback([covidTableSchema]);
+    schemaCallback([myTableSchema]);
   };
 
   myConnector.getData = function (table, doneCallback) {
@@ -126,4 +141,3 @@ function getData() {
   tableau.submit();
 }
 
-*/
