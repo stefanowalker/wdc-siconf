@@ -96,8 +96,8 @@ console.log("This is working...");
     ];
 
     let myTableSchema = {
-      id: "TESTE",
-      alias: "teste alias",
+      id: "ENTES",
+      alias: "ENTES-SICONF",
       columns: myCols,
     };
 
@@ -114,14 +114,14 @@ console.log("This is working...");
         // Iterate over the JSON object
         for (i = 0, len = resp.length; i < len; i++) {
           tableData.push({
-            cod_ibge: resp[i].cod_ibge,
-            capital: resp[i].capital,
-            regiao: resp[i].regiao,
-            uf: resp[i].uf,
-            esfera: resp[i].esfera,
-            exercicio: resp[i].exercicio,
-            populacao: resp[i].populacao,
-            cnpj: resp[i].cnpj,
+            cod_ibge: resp.items[i].cod_ibge,
+            capital: resp.items[i].capital,
+            regiao: resp.items[i].regiao,
+            uf: resp.items[i].uf,
+            esfera: resp.items[i].esfera,
+            exercicio: resp.items[i].exercicio,
+            populacao: resp.items[i].populacao,
+            cnpj: resp.items[i].cnpj,
           });
         }
         table.appendRows(tableData);
