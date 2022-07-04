@@ -2,7 +2,7 @@ console.log("This is working!");
 
 // TESTE
 (function () {
-  var myConnector = null;
+  var myConnector = tableau.makeConnector();
 
   myConnector.getData = function (table, doneCallback) {
     let tableData = [];
@@ -13,6 +13,7 @@ console.log("This is working!");
       function (resp) {
         // Iterate over the JSON object
         for (i = 0, len = resp.length; i < len; i++) {
+          console.log ('resp[i] = ', resp[i]);
           tableData.push({
             cod_ibge: resp[i].cod_ibge,
             capital: resp[i].capital,
