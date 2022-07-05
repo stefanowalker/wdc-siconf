@@ -63,11 +63,11 @@ console.log("This is working...");
       },
       {
         id: "ente",
-        dataType: tableau.dataTypeEnum.text,
+        dataType: tableau.dataTypeEnum.varchar,
       },
       {
         id: "capital",
-        dataType: tableau.dataTypeEnum.text,
+        dataType: tableau.dataTypeEnum.varchar,
       },
       {
         id: "regiao",
@@ -96,8 +96,8 @@ console.log("This is working...");
     ];
 
     let myTableSchema = {
-      id: "ENTES",
-      alias: "ENTES-SICONF",
+      id: "entes",
+      alias: "entes",
       columns: myCols,
     };
 
