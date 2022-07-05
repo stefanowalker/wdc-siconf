@@ -68,8 +68,8 @@ console.log("This is working...");
     do {
 
     $.getJSON(
-      "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes",
-      //"https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes?&offset=" + offset,
+      //"https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes",
+      "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes?&offset=" + offset,
       function (resp) {
         console.log ("resp.limit = ", resp.limit);
         limitepaginacao = resp.limit; 
