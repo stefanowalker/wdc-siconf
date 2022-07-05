@@ -62,6 +62,7 @@ console.log("This is working...");
     let tableData = [];
     var i = 0;
     var offset = 0;
+    var temmais = false;
 
     do {
 
@@ -91,7 +92,11 @@ console.log("This is working...");
     ); // fim json
 
     offset = offset + resp.limit; // aumenta o valor do inicio da proxima paginacao
-  } while (resp.hasMore = true);
+    
+    if (resp.hasMore = true) {
+      temmais = true;
+    }
+  } while (temmais);
   };
 
   tableau.registerConnector(myConnector);
