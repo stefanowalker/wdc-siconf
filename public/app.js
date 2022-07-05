@@ -63,11 +63,11 @@ console.log("This is working...");
       },
       {
         id: "ente",
-        dataType: tableau.dataTypeEnum.varchar,
+        dataType: tableau.dataTypeEnum.string,
       },
       {
         id: "capital",
-        dataType: tableau.dataTypeEnum.varchar,
+        dataType: tableau.dataTypeEnum.string,
       },
       {
         id: "regiao",
@@ -115,6 +115,7 @@ console.log("This is working...");
         for (i = 0, len = resp.items.length; i < len; i++) {
           tableData.push({
             cod_ibge: resp.items[i].cod_ibge,
+            ente: resp.items[i].ente,
             capital: resp.items[i].capital,
             regiao: resp.items[i].regiao,
             uf: resp.items[i].uf,
