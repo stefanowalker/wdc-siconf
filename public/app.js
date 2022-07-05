@@ -61,11 +61,15 @@ console.log("This is working...");
     console.log("DENTRO FUNCAO getData");
     let tableData = [];
     var i = 0;
+    var offset = 0;
+
+    do {
 
     $.getJSON(
-      "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes",
+      "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes?&offset=" + offset,
       function (resp) {
         // Iterate over the JSON object
+
         for (i = 0, len = resp.items.length; i < len; i++) {
           tableData.push({
             cod_ibge: resp.items[i].cod_ibge,
@@ -79,11 +83,15 @@ console.log("This is working...");
             cnpj: resp.items[i].cnpj,
           });
         }
+
         table.appendRows(tableData);
         doneCallback();
         console.log("iterou sobre o objeto");
       }
-    );
+    ); // fim json
+
+    offset = offset + resp.limit; // aumenta o valor do inicio da proxima paginacao
+  } while (resp.hasMore = true);
   };
 
   tableau.registerConnector(myConnector);
