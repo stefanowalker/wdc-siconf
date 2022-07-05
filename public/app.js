@@ -57,8 +57,8 @@ console.log("This is working...");
   };
 
   myConnector.getData = function (table, doneCallback) {
-
     console.log("DENTRO FUNCAO getData");
+
     let tableData = [];
     var i = 0;
     var offset = 0;
@@ -68,10 +68,15 @@ console.log("This is working...");
     do {
 
     $.getJSON(
-      "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes?&offset=" + offset,
+      "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes",
+      //"https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes?&offset=" + offset,
       function (resp) {
-        limitepaginacao = resp.limit;
+        console.log ("resp.limit = ", resp.limit);
+        limitepaginacao = resp.limit; 
+
+        console.log ("resp.hasMore = ", resp.hasMore); 
         temmais = resp.hasMore;
+
         // Iterate over the JSON object
 
         for (i = 0, len = resp.items.length; i < len; i++) {
