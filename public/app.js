@@ -89,16 +89,28 @@ console.log("This is working...");
   tableau.registerConnector(myConnector);
   console.log(" tableau.registerConnector(myConnector); ");
 
+
+  
+  getData = function () {
+    tableau.connectionName = "SICONF conexão ENTE";
+    tableau.submit();
+  }
+
+  getData();
+
+  close();
+  
+  
 })();
 // fim function self-involking 
 
 
-document.querySelector("#getData").addEventListener("click", getData);
+//document.querySelector("#getData").addEventListener("click", getData);
 
-function getData() {
-  tableau.connectionName = "SICONF conexão ENTE";
-  tableau.submit();
-}
+// function getData() {
+//   tableau.connectionName = "SICONF conexão ENTE";
+//   tableau.submit();
+// }
 
 /*
 function sleep(ms) {
@@ -107,5 +119,5 @@ function sleep(ms) {
 
 getData();
 
-close(2000);
+close();
 */
