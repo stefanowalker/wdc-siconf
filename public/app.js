@@ -67,7 +67,7 @@ console.log("This is working...");
     do {
 
     $.getJSON(
-      "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes?&offset=" + offset,
+      "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes", // ?&offset=" + offset,
       function (resp) {
         // Iterate over the JSON object
 
@@ -92,7 +92,7 @@ console.log("This is working...");
     ); // fim json
 
     offset = offset + resp.limit; // aumenta o valor do inicio da proxima paginacao
-    
+
     if (resp.hasMore = true) {
       temmais = true;
     }
