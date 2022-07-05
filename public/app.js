@@ -71,6 +71,7 @@ console.log("This is working...");
       "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes?&offset=" + offset,
       function (resp) {
         limitepaginacao = resp.limit;
+        temmais = resp.hasMore;
         // Iterate over the JSON object
 
         for (i = 0, len = resp.items.length; i < len; i++) {
@@ -95,9 +96,6 @@ console.log("This is working...");
 
     offset = offset + limitepaginacao; // aumenta o valor do inicio da proxima paginacao
 
-    if (resp.hasMore = true) {
-      temmais = true;
-    }
   } while (temmais);
   };
 
