@@ -134,7 +134,6 @@ console.log("This is working...");
 
   tableau.registerConnector(myConnector);
 
-  getData();
 })();
 // fim function self-involking 
 
@@ -146,3 +145,4 @@ function getData() {
   tableau.submit();
 }
 
+getData();
