@@ -145,4 +145,9 @@ function getData() {
   tableau.submit();
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 getData();
+close(2000);
