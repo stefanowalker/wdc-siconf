@@ -63,11 +63,11 @@ console.log("This is working...");
       },
       {
         id: "ente",
-        dataType: tableau.dataTypeEnum.string,
+        dataType: tableau.dataTypeEnum.text,
       },
       {
         id: "capital",
-        dataType: tableau.dataTypeEnum.string,
+        dataType: tableau.dataTypeEnum.text,
       },
       {
         id: "regiao",
@@ -137,7 +137,7 @@ console.log("This is working...");
 document.querySelector("#getData").addEventListener("click", getData);
 
 function getData() {
-  tableau.connectionName = "SICONF conexão teste";
+  tableau.connectionName = "SICONF conexão ENTE";
   tableau.submit();
 }
 
