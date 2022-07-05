@@ -1,54 +1,3 @@
-/*
-console.log("This is working!");
-
-// TESTE
-(function () {
-  var myConnector = tableau.makeConnector();
-
-  myConnector.getData = function (table, doneCallback) {
-    let tableData = [];
-    var i = 0;
-
-    $.getJSON(
-      "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes",
-      function (resp) {
-        // Iterate over the JSON object
-        for (i = 0, len = resp.length; i < len; i++) {
-
-          console.log ('resp[i] = ', resp[i]);
-
-          tableData.push({
-            cod_ibge: resp[i].cod_ibge,
-            capital: resp[i].capital,
-            regiao: resp[i].regiao,
-            uf: resp[i].uf,
-            esfera: resp[i].esfera,
-            exercicio: resp[i].exercicio,
-            populacao: resp[i].populacao,
-            cnpj: resp[i].cnpj,
-          });
-        }
-        table.appendRows(tableData);
-        doneCallback();
-        console.log("iterou sobre o objeto TESTE");
-      }
-    );
-  };
-
-
-  document.querySelector("#getData").addEventListener("click", getData);
-
-  function getData() {
-    tableau.connectionName = "SICONF conexão teste";
-    tableau.submit();
-  }
-
-  tableau.registerConnector(myConnector);
-
-})();
-
-*/
-
 
 console.log("This is working...");
 
@@ -56,6 +5,7 @@ console.log("This is working...");
   var myConnector = tableau.makeConnector();
 
   myConnector.getSchema = function (schemaCallback) {
+    console.log("DENTRO FUNCAO getSchema");
     const myCols = [
       {
         id: "cod_ibge",
@@ -102,9 +52,13 @@ console.log("This is working...");
     };
 
     schemaCallback([myTableSchema]);
+    console.log("CHAMOU schemaCallBack");
+
   };
 
   myConnector.getData = function (table, doneCallback) {
+
+    console.log("DENTRO FUNCAO getData");
     let tableData = [];
     var i = 0;
 
@@ -133,6 +87,7 @@ console.log("This is working...");
   };
 
   tableau.registerConnector(myConnector);
+  console.log(" tableau.registerConnector(myConnector); ");
 
 })();
 // fim function self-involking 
@@ -145,9 +100,12 @@ function getData() {
   tableau.submit();
 }
 
+/*
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 getData();
+
 close(2000);
+*/
