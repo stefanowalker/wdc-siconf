@@ -67,7 +67,7 @@ console.log("This is working...");
       },
       {
         id: "capital",
-        dataType: tableau.dataTypeEnum.string,
+        dataType: tableau.dataTypeEnum.int,
       },
       {
         id: "regiao",
@@ -133,7 +133,11 @@ console.log("This is working...");
   };
 
   tableau.registerConnector(myConnector);
+
+  getData();
 })();
+// fim function self-involking 
+
 
 document.querySelector("#getData").addEventListener("click", getData);
 
