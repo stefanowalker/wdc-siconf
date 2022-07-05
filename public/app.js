@@ -63,12 +63,14 @@ console.log("This is working...");
     var i = 0;
     var offset = 0;
     var temmais = false;
+    var limitepaginacao = 0; 
 
     do {
 
     $.getJSON(
-      "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes", // ?&offset=" + offset,
+      "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes?&offset=" + offset,
       function (resp) {
+        limitepaginacao = resp.limit;
         // Iterate over the JSON object
 
         for (i = 0, len = resp.items.length; i < len; i++) {
@@ -91,7 +93,7 @@ console.log("This is working...");
       }
     ); // fim json
 
-    offset = offset + resp.limit; // aumenta o valor do inicio da proxima paginacao
+    offset = offset + limitepaginacao; // aumenta o valor do inicio da proxima paginacao
 
     if (resp.hasMore = true) {
       temmais = true;
