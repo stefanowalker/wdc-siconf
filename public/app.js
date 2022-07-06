@@ -67,41 +67,41 @@ console.log("This is working...");
 
     do {
 
-    $.getJSON(
-      //"https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes",
-      "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes?&offset=" + offset,
-      function (resp) {
-        console.log ("resp.limit = ", resp.limit);
-        limitepaginacao = resp.limit; 
+      $.getJSON(
+        //"https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes",
+        "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes?&offset=" + offset,
+        function (resp) {
+          console.log ("resp.limit = ", resp.limit);
+          limitepaginacao = resp.limit; 
 
-        console.log ("resp.hasMore = ", resp.hasMore); 
-        temmais = resp.hasMore;
+          console.log ("resp.hasMore = ", resp.hasMore); 
+          temmais = resp.hasMore;
 
-        // Iterate over the JSON object
+          // Iterate over the JSON object
 
-        for (i = 0, len = resp.items.length; i < len; i++) {
-          tableData.push({
-            cod_ibge: resp.items[i].cod_ibge,
-            ente: resp.items[i].ente,
-            capital: resp.items[i].capital,
-            regiao: resp.items[i].regiao,
-            uf: resp.items[i].uf,
-            esfera: resp.items[i].esfera,
-            exercicio: resp.items[i].exercicio,
-            populacao: resp.items[i].populacao,
-            cnpj: resp.items[i].cnpj,
-          });
+          for (i = 0, len = resp.items.length; i < len; i++) {
+            tableData.push({
+              cod_ibge: resp.items[i].cod_ibge,
+              ente: resp.items[i].ente,
+              capital: resp.items[i].capital,
+              regiao: resp.items[i].regiao,
+              uf: resp.items[i].uf,
+              esfera: resp.items[i].esfera,
+              exercicio: resp.items[i].exercicio,
+              populacao: resp.items[i].populacao,
+              cnpj: resp.items[i].cnpj,
+            });
+          }
+
+          table.appendRows(tableData);
+          doneCallback();
+          console.log("iterou sobre o objeto");
         }
+      ); // fim json
 
-        table.appendRows(tableData);
-        doneCallback();
-        console.log("iterou sobre o objeto");
-      }
-    ); // fim json
+      offset = offset + limitepaginacao; // aumenta o valor do inicio da proxima paginacao
 
-    offset = offset + limitepaginacao; // aumenta o valor do inicio da proxima paginacao
-
-  } while (temmais);
+    } while (temmais);
   };
 
   tableau.registerConnector(myConnector);
