@@ -12,10 +12,57 @@
       src="https://connectors.tableau.com/libs/tableauwdc-2.3.latest.js"
       type="text/javascript"
     ></script>
+    <script>
+      window.onload = function(){
+        console.log('DOM has loaded');
+        // created router constructor
+
+        var Router = function(name, routes){
+          return {
+            name: name,
+            routes: routes
+          }
+        }
+
+        var view = document.getElementById('view');
+
+        var myrouter = new Router('myfirstrouter', [
+         {
+          path: '/', name: 'Root' 
+         },
+         {
+          path: '/contact', name: 'Contact' 
+         }
+        ]);
+
+        var currentPath = window.location.pathname;
+        console.log (currentPath);
+        
+        if (currentPath === '/')  {
+          view.innerHTML = 'You are on the root page';
+        }
+        else{
+          var route = myrouter.routes.filter(function(r) {
+            return r.path === currentPath
+          })[0];
+          console.log(route);
+        }
+        if (route) {
+          view.innerHTML = 'You are on the '+ route.name + ' path';          
+        }
+        else {
+          view.innerHTML = '404';          
+        }
+
+
+      }
+    </script>
+
   </head>
   <body>
     <header>
       <h1>Capturar dados</h1>
+      <div id="view"></div>
     </header>
     <main>
       <button id="getData">Clique aqui para capturar dados</button>
