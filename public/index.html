@@ -37,7 +37,7 @@
 
         var currentPath = window.location.pathname;
         console.log (currentPath);
-        
+
         if (currentPath === '/')  {
           view.innerHTML = 'You are on the root page';
         }
@@ -46,13 +46,14 @@
             return r.path === currentPath
           })[0];
           console.log(route);
-        }
-        if (route) {
-          view.innerHTML = 'You are on the '+ route.name + ' path';          
-        }
-        else {
-          view.innerHTML = '404';          
-        }
+          
+          if (route) {
+            view.innerHTML = 'You are on the '+ route.name + ' path';          
+          }
+          else {
+            view.innerHTML = '404';          
+          }
+      }
 
 
       }
