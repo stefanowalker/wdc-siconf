@@ -1,7 +1,8 @@
 
 console.log("This is working...");
 
-(function () {
+//(function () {
+function main () {
   var myConnector = tableau.makeConnector();
 
   myConnector.getSchema = function (schemaCallback) {
@@ -107,7 +108,11 @@ console.log("This is working...");
   tableau.registerConnector(myConnector);
   console.log(" tableau.registerConnector(myConnector); ");
 
-})();
+}
+
+main();
+
+// })();
 // fim function self-involking 
 
 

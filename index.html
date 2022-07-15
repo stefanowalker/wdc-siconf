@@ -14,7 +14,7 @@
       type="text/javascript"
     ></script>
 
-    <!--- NÃO DEU CERTO ESSA PARTE - -->
+    <!--- NÃO DEU CERTO ESSA PARTE - --> 
     <!-- 
     <script>
       window.onload = function(){
@@ -77,5 +77,15 @@
 
     <!-- this is the JavaScript file -->
     <script src="./app.js"></script>
+
+    <!-- TESTE. talvez seja util pra algo: -->
+    <script>
+      const myUrl = new URL ('https://youtube.com/?amor=ela');
+
+      //myUrl.searchParams.set("name", 'Dom');
+      //myUrl.searchParams.set("age", '24');
+
+      console.log(myUrl.searchParams.get('amor'));
+    </script>
   </body>
 </html>
